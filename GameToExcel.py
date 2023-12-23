@@ -68,7 +68,7 @@ def runMacro(game_dir, macro_name):
 
         # DispatchEx is required in the newest versions of Python.
         excel_macro = wincl.DispatchEx("Excel.application")
-        excel_path = os.path.expanduser(game_dir + "\game.xlsm")
+        excel_path = os.path.abspath(os.path.expanduser(game_dir + "\game.xlsm"))
         workbook = excel_macro.Workbooks.Open(Filename = excel_path, ReadOnly =1)
         excel_macro.Application.Run(macro_name)
         workbook.Save()
